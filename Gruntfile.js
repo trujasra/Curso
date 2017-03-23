@@ -6,7 +6,8 @@ module.exports = function(grunt) {
 
     project: {
       css: 'css',
-      js: 'js'
+      js: 'js',
+      tag: "/*x ----->>>> Curso de Capacitacion OEP <------ */"
     },
 
     concat: {
@@ -22,14 +23,27 @@ module.exports = function(grunt) {
           ],
           dest: 'js/oep.js'
       }
+    },
+
+    uglify: {
+      options: { banner: "<%= project.tag %>" },
+
+      app: {
+        files: { 
+          'js/oep.min.js': ['js/oep.js'] 
+        }
+      }
     }
+
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
   
   // grunt.registerTask('default', ['concat:app']);
-  grunt.registerTask('concatenar', ['concat:app']);
+  grunt.registerTask('build', ['concat:app', 'uglify:app']);
 
 };
 
