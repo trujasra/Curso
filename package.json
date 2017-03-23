@@ -21,5 +21,8 @@
   "homepage": "https://github.com/vicobits/Clase2FrontendOEP#readme",
   "dependencies": {
     "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "^1.0.1"
   }
 }
