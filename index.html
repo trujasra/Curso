@@ -33,18 +33,30 @@
                 </div>
             </div>            
             <footer>
+                <div id="message">
+                    
+                </div>
                 <input id="button" type="button" value="Enviar Sugerencia">
             </footer>
             
         </form>
 
     </section>
+
+    
+    <script id="message-tpl" type="text/x-handlebars-template">
+        <div class="entry">
+            <span>{{suggestion}}</span>
+            <strong>{{first_name}}</strong>
+        </div>
+    </script>
     
     <script
       src="https://code.jquery.com/jquery-2.2.4.min.js"
       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
       crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
     <script src="js/loader.js"></script>
     <script src="js/index.js"></script>
 </body>

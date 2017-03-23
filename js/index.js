@@ -18,6 +18,8 @@ $(document).ready(function(){
     var $lastName =  $("#lastName");
     var $email =  $("#email");
     var $suggestion=  $("#suggestion");
+    var $tpl =  $("#message-tpl");
+    var $message =  $("#message");
 
     $button.click(function(e){
         console.log("Click!");
@@ -33,8 +35,20 @@ $(document).ready(function(){
 
         setTimeout(function(){
             console.log(suggestion);
-            alert("datos recibidos...");
+
+            // alert("datos recibidos...");
             preloader.off();
-        }, 5000);
+            var source = $tpl.html();
+            var template = Handlebars.compile(source);
+            var html = template(suggestion);
+
+            $message.append(html);
+            // console.log(html);
+
+            setTimeout(function(){
+                $message.hide();
+            }, 2000);
+
+        }, 1000);
     });
 });
