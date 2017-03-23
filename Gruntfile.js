@@ -3,22 +3,33 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    uglify: {
+
+    project: {
+      css: 'css',
+      js: 'js'
+    },
+
+    concat: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+          stripBanners: false
       },
-      build: {
-        src: 'src/<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.min.js'
+
+      app: {
+          src: [
+              "js/loader.js",
+              "js/index.js",
+              "js/hola.js",
+          ],
+          dest: 'js/oep.js'
       }
     }
+
   });
 
-  // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-
-  // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  
+  // grunt.registerTask('default', ['concat:app']);
+  grunt.registerTask('concatenar', ['concat:app']);
 
 };
 
